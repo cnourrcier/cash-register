@@ -10,15 +10,19 @@
 
 <body>
     <h1>Cash Register Project</h1>
-    <div id="change-due"></div>
-    <form>
-        <div class="input-container">
-            <label for="cash">Enter cash from customer:</label>
-            <input type="number" id="cash" value="" required>
+    <div class="cash-register">
+        <div class="display-screen">
+            <div id="change-due"></div>
         </div>
-        <button type="button" id="purchase-btn">Purchase</button>
-    </form>
-    <div id="cash-in-drawer"></div>
+        <form class="control-panel">
+            <div class="input-container">
+                <label for="cash">Enter cash from customer:</label>
+                <input type="number" id="cash" value="" required>
+            </div>
+            <button type="button" id="purchase-btn">Purchase</button>
+        </form>
+        <div id="cash-in-drawer" class="cash-drawer"></div>
+    </div>
     <script src="script.js"></script>
 </body>
 

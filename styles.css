@@ -3,22 +3,81 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.2rem;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    height: 120vh;
+    background-image: linear-gradient(to bottom right, #ece9e6, #ffffff);
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.cash-register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #2d3e50;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 1.5rem;
+}
+
+.display-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1abc9c;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: white;
+    font-size: .8rem;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+    height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    scrollbar-width: thin;
+    /* For Firefox*/
+    scrollbar-color: #ffffff #1abc9c;
+    /* For Firefox */
+}
+
+.display-screen::-webkit-scrollbar {
+    width: 6px;
+    /* Set the width of the scrollbar */
+}
+
+.display-screen::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+    border-radius: 10px;
+    /* Round the scrollbar thumb */
+}
+
+.display-screen::-webkit-scrollbar-track {
+    background-color: #1abc9c;
 }
 
 #change-due {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin-top: 1.6rem;
 }
 
-form {
+.control-panel {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 1rem;
+    width: 100%;
 }
 
 .input-container {
@@ -27,11 +86,50 @@ form {
     align-items: center;
     justify-content: center;
     gap: .5rem;
+    width: 100%;
+    color: #ecf0f1;
 }
 
-#cash-in-drawer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+input[type="number"] {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+button:hover {
+    background-color: #c0392b;
+}
+
+.cash-drawer {
+    background-color: #ecf0f1;
+    border-radius: 8px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+    color: #333;
+}
+
+.cash-drawer div {
+    margin: 0.5rem 0;
+}
+
+#change-due div {
+    margin: 0.5rem 0;
 }

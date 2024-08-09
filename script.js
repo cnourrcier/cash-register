@@ -50,12 +50,12 @@ function getTotalCashInDrawer() {
     return roundToTwoDecimalPlaces(cid.reduce((sum, [_, amount]) => sum + amount, 0));
 };
 
-function calculateChangeForDenomination(change, denomination, denominationValue) {
+function calculateChangeForDenomination(change, denomination, denominationValue, cidCopy) {
     let changeAvailable = 0;
-    while (cid[denomination][1] > 0 && change >= denominationValue) {
+    while (cidCopy[denomination][1] > 0 && change >= denominationValue) {
         changeAvailable = roundToTwoDecimalPlaces(changeAvailable + denominationValue);
         change = roundToTwoDecimalPlaces(change - denominationValue);
-        cid[denomination][1] = roundToTwoDecimalPlaces(cid[denomination][1] - denominationValue);
+        cidCopy[denomination][1] = roundToTwoDecimalPlaces(cidCopy[denomination][1] - denominationValue);
     }
 
     return { change, changeAvailable };
@@ -79,9 +79,10 @@ function checkStatus(change) {
 
     // Check if it is possible to return the exact change
     let tempChange = change;
-    for (let i = cid.length - 1; i >= 0; i--) {
+    let cidCopy = JSON.parse(JSON.stringify(cid)); // Create a copy of cid
+    for (let i = cidCopy.length - 1; i >= 0; i--) {
         let denominationValue = denominationValues[cid[i][0]];
-        let result = calculateChangeForDenomination(tempChange, i, denominationValue);
+        let result = calculateChangeForDenomination(tempChange, i, denominationValue, cidCopy);
         tempChange = result.change;
     }
 
@@ -108,7 +109,7 @@ function processTransaction(price, cash) {
 
     for (let i = cid.length - 1; i >= 0; i--) {
         let denominationValue = denominationValues[cid[i][0]];
-        let result = calculateChangeForDenomination(change, i, denominationValue);
+        let result = calculateChangeForDenomination(change, i, denominationValue, cid);
         change = result.change;
         if (result.changeAvailable > 0) {
             totalAmountPerValue.push(`${cid[i][0]}: $${result.changeAvailable.toFixed(2)} `)
