@@ -1,6 +1,8 @@
 # Cash Register
 
+<!-- DESCRIPTION-START -->
 A JavaScript Cash Register web application.
+<!-- DESCRIPTION-END -->
 
 ![project image](https://res.cloudinary.com/dwguf4w1t/image/upload/v1723226283/Portfolio%20Projects/cash-register-js_v4kxxc.png)
 
